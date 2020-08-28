@@ -1,0 +1,32 @@
+---
+title: "World Temperature last 150 years"
+author: "geotsa"
+date: "23/01/2020"
+output: slidy_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## World Temperature last 150 years
+
+The following illustrates the change in global surface temperature relative to 1951-1980 average temperatures. Nineteen of the 20 warmest years all have occurred since 2001, with the exception of 1998. The year 2016 ranks as the warmest on record
+[Source: NASA/GISS](https://data.giss.nasa.gov/gistemp/graphs/graph_data/Global_Mean_Estimates_based_on_Land_and_Ocean_Data/graph.txt) .
+
+
+## World Temperature last 150 years
+
+```{r, message=FALSE}
+library(plotly)
+library(tidyr)
+library(dplyr)
+setwd("/home/tsa/Courses/Coursera_R")
+mydata = read.csv("temperatures.csv")  # read csv file 
+plot_ly(mydata, x = ~Year, y = ~Temperature, color = ~Curve_Type, colors=c("red", "light blue"), type = "scatter", mode = "lines")
+```
+
+[Source: NASA/GISS](https://data.giss.nasa.gov/gistemp/graphs/graph_data/Global_Mean_Estimates_based_on_Land_and_Ocean_Data/graph.txt).
+
+## Thank you !!
+
